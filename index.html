@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----------------- GOOGLE FONT - QUICKSAND ----------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!----------------- ICON ----------------->
+    <link rel="icon" href="./Static/chill-bank-icon.png">
+    
+    <!----------------- CSS STYLE ----------------->
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Chill Bank</title>
+
+</head>
+<body>
+    
+    <div class="welcome-page">
+        <nav class="navbar">
+            <div class="logo-section">
+                <img class="logo" src="./Static/chill-bank-icon.png" alt="chill-bank-icon">
+                <p>CHILL BANK</p>
+            </div>
+
+            <div class="buttons-section">
+                <button class="login-form-button">LOGIN</button>
+            </div>
+
+        </nav>
+        
+        <div class="body">
+            <p class="welcome-text">WELCOME TO</p>
+            <h1 class="chill-bank-text">CHILL BANK</h1>
+            <button class="login-form-button button-dark">LOGIN TO START</button>
+        </div>
+        
+        <div class="login-section">
+            <div class="background"></div>
+            <div class="form">
+                <h1>LOGIN</h1>
+                <p>Insert username and passord below:</p>
+                <input class="username-field" type="text" placeholder="username" name="username"/>
+                <input class="password-field" type="password" placeholder="password" name="password"/>
+                <button class="login-button button-dark">Login</button>
+                <button class="close-button">✖</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-page">
+        <nav class="navbar">
+            <div class="logo-section">
+                <img class="logo" src="./Static/chill-bank-icon.png" alt="chill-bank-icon">
+                <p>CHILL BANK</p>
+            </div>
+            <div class="buttons-section">
+                <p class="username"></p>
+                <button class="logout-button">LOGOUT</button>
+            </div>
+        </nav>
+        <div class="body">
+            <div class="operations-section">
+                <div class="operation-section withdrawal-section">
+                    <button class="operator">Withdraw</button>
+                    <div class="input-section">
+                        <p class="label">Withdraw chill amount:</p>
+                        <input class="field" type="number">
+                    </div>
+                </div>
+                <div class="operation-section deposit-section">
+                    <button class="operator">Deposit</button>
+                    <div class="input-section">
+                        <p class="label">Deposit chill amount:</p>
+                        <input class="field" type="number">
+                    </div>
+                </div>
+                <div class="operation-section transfer-section">
+                    <button class="operator">Transfer</button>
+                    <div class="input-section">
+                        <p class="label-amount">Transfer chill amount:</p>
+                        <input class="field-amount" type="number">
+                        <p class="label-receiver">Transfer receiver:</p>
+                        <input class="field-receiver" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="operation-history-section">
+                <div class="history-section"></div>
+                <div class="statistics-section">
+                    <div class="statistic-section total-section">
+                        <p class="amount">0</p>
+                        <p class="label">TOTAL</p>
+                    </div>
+                    <div class="statistic-section withdraw-section">
+                        <p class="amount">0</p>
+                        <p class="label">WITHDRAW</p>
+                    </div>
+                    <div class="statistic-section deposit-section">
+                        <p class="amount">0</p>
+                        <p class="label">DEPOSIT</p>
+                    </div>
+                    <div class="statistic-section transfer-section">
+                        <p class="amount">0</p>
+                        <p class="label">TRANSFER</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logout-section">
+            <div class="background"></div>
+            <div class="form">
+                <h1>Logout</h1>
+                <p>Are you sure you want to logout?</p>
+                <div class="options">
+                    <button class="yes">YES</button>
+                    <button class="no">NO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="./app.js"></script>
+    
+</body>
+</html>
