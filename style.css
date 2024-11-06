@@ -252,7 +252,7 @@ body {
     gap: 40px;
 }
 
-.user-page .body .operations-section .operation-section .operator {
+.user-page .body .operations-section .operation-section .submit-button {
     flex: 2;
     text-align: center;
     border: none;
@@ -265,14 +265,14 @@ body {
     transition-duration: 0.2s;
 }
 
-.user-page .body .operations-section .operation-section .operator:hover {
+.user-page .body .operations-section .operation-section .submit-button:hover {
     background: var(--cornsilk);
     color: var(--rich-black);
     outline: 2px solid var(--rich-black);
     transform: translateY(-5px)
 }
 
-.user-page .body .operations-section .operation-section .operator:active {
+.user-page .body .operations-section .operation-section .submit-button:active {
     transform: translateY(0);
     background: var(--ash-gray);
 }
@@ -308,22 +308,22 @@ input::-webkit-inner-spin-button {
     background: var(--ash-gray);
 }
 
-.user-page .body .operation-history-section {
+.user-page .body .user-data-section {
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 20px;
 }
 
-.user-page .body .operation-history-section .statistics-section {
+.user-page .body .user-data-section .statistics-section {
     flex: 1;
     border-radius: 50px;
     background: var(--rich-black);
 }
 
 
-.user-page .logout-section {
-    display: none;
+.user-page .logout-modal {
+    display: flex;
     opacity: 0;
     position: absolute;
     top: 0;
@@ -332,67 +332,89 @@ input::-webkit-inner-spin-button {
     left: 0;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
     transition-duration: 0.3s;
 }
 
-.user-page .logout-section .background {
+.user-page .logout-modal .background {
     background: rgba(0, 0, 0, 0.5);
     position: absolute;
     width: 100%;
     height: 100%;
 }
-.user-page .logout-section .form {
+.user-page .logout-modal .form {
     background: white;
     z-index: 1;
     padding: 35px 50px;
     border-radius: 50px;
 }
 
-.user-page .logout-section .form * {
+.user-page .logout-modal .form * {
     margin-top: 10px;
 }
 
-.user-page .logout-section .form .options {
+.user-page .logout-modal .form .options {
     display: flex;
     justify-content: end;
     gap: 20px;
 }
 
-.user-page .logout-section .form .options button {
+.user-page .logout-modal .form .options button {
     border: 0;
     padding: 10px 20px;
     border-radius: 20px;
     transition-duration: 0.3s;
 }
 
-.user-page .logout-section .form .options .yes:hover {
+.user-page .logout-modal .form .options .yes:hover {
     background: darkseagreen;
 }
 
-.user-page .logout-section .form .options .no:hover {
+.user-page .logout-modal .form .options .no:hover {
     background: tomato;
 }
 
-.user-page .body .operation-history-section .statistics-section {
+.user-page .body .user-data-section .statistics-section {
     display: flex;
     align-items: center;
     padding: 10px 30px;
 }
 
-.user-page .body .operation-history-section .statistics-section * {
+.user-page .body .user-data-section .statistics-section * {
     color: whitesmoke;
 }
 
-.user-page .body .operation-history-section .statistics-section .amount {
+.user-page .body .user-data-section .statistics-section .amount {
     font-size: 2rem;
+    font-weight: bold;
 }
 
-.user-page .body .operation-history-section .statistics-section .statistic-section {
+
+.user-page .body .user-data-section .statistics-section .withdraw-section .amount {
+    color: var(--verdigris);
+}
+
+.user-page .body .user-data-section .statistics-section .deposit-section .amount {
+    color: var(--cerulean);
+}
+
+.user-page .body .user-data-section .statistics-section .transfer-section .amount {
+    color: var(--ash-gray);
+}
+
+.user-page .body .user-data-section .statistics-section .amount::after {
+    content: "CHILL";
+    font-weight: lighter;
+    font-size: xx-small;
+    margin-left: 4px;
+}
+
+.user-page .body .user-data-section .statistics-section .statistic-section {
     flex: 1;
     text-align: center;
 }
 
-.user-page .body .operation-history-section .history-section {
+.user-page .body .user-data-section .operations-history {
     display: flex;
     flex-direction: column;
     flex: 3 0 200px;
@@ -400,20 +422,20 @@ input::-webkit-inner-spin-button {
     overflow-y: scroll;
 }
 
-.user-page .body .operation-history-section .history-section::-webkit-scrollbar {
+.user-page .body .user-data-section .operations-history::-webkit-scrollbar {
     width: 10px;
 }
 
-.user-page .body .operation-history-section .history-section::-webkit-scrollbar-thumb {
+.user-page .body .user-data-section .operations-history::-webkit-scrollbar-thumb {
     background-color: grey;
     border-radius: 10px;
 }
 
-.user-page .body .operation-history-section .history-section::-webkit-scrollbar-track-piece {
+.user-page .body .user-data-section .operations-history::-webkit-scrollbar-track-piece {
     background-color: white;
 }
 
-.user-page .body .operation-history-section .operation {
+.user-page .body .user-data-section .operation {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -423,7 +445,7 @@ input::-webkit-inner-spin-button {
     padding: 10px 30px;
 }
 
-.user-page .body .operation-history-section .operation .type {
+.user-page .body .user-data-section .operation .type {
     flex: 3;
     display: inline-flex;
     justify-content: center;
@@ -435,23 +457,23 @@ input::-webkit-inner-spin-button {
     padding: 5px 0;
 }
 
-.user-page .body .operation-history-section .operation .withdrawal {
+.user-page .body .user-data-section .operation .withdrawal {
     background: var(--verdigris);
 }
 
-.user-page .body .operation-history-section .operation .deposit {
+.user-page .body .user-data-section .operation .deposit {
     background: var(--cerulean);
 }
 
-.user-page .body .operation-history-section .operation .transfer {
+.user-page .body .user-data-section .operation .transfer {
     background: var(--ash-gray);
 }
 
-.user-page .body .operation-history-section .operation .amount {
+.user-page .body .user-data-section .operation .amount {
     flex: 5;
     font-weight: bold;
 }
 
-.user-page .body .operation-history-section .operation .date {
+.user-page .body .user-data-section .operation .date {
     flex: 4;
 }
