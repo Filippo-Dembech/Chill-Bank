@@ -173,7 +173,7 @@ class Operation {
 
 
 /**
- * This {@link Operation} allows the {@link User}
+ * This {@link Operation} allows the {@link User} to withdraw chill from its {@link BankAccount}.
  */
 class Withdrawal extends Operation {
 
@@ -182,7 +182,7 @@ class Withdrawal extends Operation {
     }
     
     /**
-     * Withdraw chilld from the specified bank account.
+     * Withdraws chill from the specified {@link BankAccount}.
      * @param {BankAccount} bankAccount - The bank account to withdraw chill from.
      */
     operateOn(bankAccount) {
@@ -200,7 +200,7 @@ class Deposit extends Operation {
     }
     
     /**
-     * Deposits chill from the specified bank account.
+     * Deposits chill from the specified {@link BankAccount}.
      * @param {BankAccount} bankAccount - The bank account to deposit chill in.
      */
     operateOn(bankAccount) {
@@ -221,7 +221,7 @@ class Transfer extends Operation {
     }
     
     /**
-     * Deposits chill from the specified bank account.
+     * transfers chill from the specified {@link BankAccount}.
      * @param {BankAccount} bankAccount - The bank account to deposit chill in.
      */
     operateOn(bankAccount) {
