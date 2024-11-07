@@ -76,9 +76,21 @@ class User {
     
 }
 
+/**
+ * The operation that a {@link User} can make. There are three main type of operations: {@link Withdrawal}, {@link Deposit}, and {@link Transfer}
+ */
 class Operation {
     
+    /**
+     * The amount of chill that the operation handles.
+     * @type {Number}
+     */
     #amount;
+
+    /**
+     * The time that the operation is made.
+     * @type {Date}
+     */
     #dateTime;
     
     /**
@@ -87,7 +99,7 @@ class Operation {
      */
     constructor(amount) {
         this.#amount = amount;
-        this.#dateTime = this.getCurrentDateTime();
+        this.#dateTime = new Date();
     }
     
     /**
@@ -95,39 +107,74 @@ class Operation {
      * @param {BankAccount} bankAccount - The bank account to operate on.
      */
     operateOn(bankAccount) {}
+    
+    /**
+     * Returns the operation type. It could be: "withdrawal", "deposit", or "transfer".
+     * @return {String}
+     */
     getType() {}
     
-    getCurrentDateTime() {
-        const now = new Date();
+    /**
+     * Returns the formatted version of the date associated with the operation.
+     * @returns {String}
+     */
+    #getFormattedDate() {
         
         // Format options for date and time
-        const dateOptions = { day: '2-digit', month: 'short', year: 'numeric' };
-        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+        const dateOptions = {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+        };
+
+        const timeOptions = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        };
         
         // Format date
-        const date = new Intl.DateTimeFormat('en-GB', dateOptions).format(now);
+        const date = new Intl.DateTimeFormat(
+            'en-GB',
+            dateOptions
+        ).format(this.#dateTime);
         
         // Format time
-        const time = new Intl.DateTimeFormat('en-GB', timeOptions).format(now);
+        const time = new Intl.DateTimeFormat(
+            'en-GB',
+            timeOptions
+        ).format(this.#dateTime);
         
         return `${date}, ${time}`;
     }
 
+    /**
+     * Returns the HTML representation of the operation. It is used in the operations history list.
+     * @returns {String}
+     */
     getHTML() {
         return `
             <div class="operation">
                 <span class="type ${this.getType()}">${this.getType().toUpperCase()}</span>
                 <span class="amount">${this.#amount} CHILL</span>
-                <span class="date">${this.#dateTime}</span>
+                <span class="date">${this.#getFormattedDate()}</span>
             </div>
         `
     }
     
+    /**
+     * Returns the amount of chill associated with the operation.
+     * This getter is mandatory to make the operation amount available to the child classes.
+     * @type {Number}
+     */
     get amount() { return this.#amount; }
-    set amount(amount) { this.#amount = amount; }
+    
 }
 
 
+/**
+ * This {@link Operation} allows the {@link User}
+ */
 class Withdrawal extends Operation {
 
     constructor(amount) {
