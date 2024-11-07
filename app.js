@@ -1,12 +1,42 @@
 
+/**
+ * A user for the {@link ChillBankApp}.
+ */
 class User {
     
+    /**
+     * The name of the user
+     * @type {String}
+     */
     #username;
-    #password;
-    #operations = [];
-    #bankAccount;
     
-    constructor(username, password, bankAccount = new BankAccount()) {
+    /**
+     * The password associated to the user to access.
+     * @type {String}
+     */
+    #password;
+    
+    /**
+     * The list of all the operations the user has made.
+     * @type {Operation[]}
+     * @see {@link Operation}
+     */
+    #operations = [];
+    
+    /**
+     * The bank account associated with the user.
+     * @type {BankAccount} [new BankAccount()]
+     */
+    #bankAccount = new BankAccount();
+    
+    /**
+     * Creates a new {@link User} for the {@link ChillBankApp}
+     * @param {String} username - The username of the user
+     * @param {String} password - The password associated with the user account
+     * @param {BankAccount} [bankAccount] - The {@link BankAccount} associated with the user.
+     * @see {@link BankAccount}
+     */
+    constructor(username, password, bankAccount) {
         this.#username = username;
         this.#password = password;
         this.#bankAccount = bankAccount;
@@ -14,7 +44,7 @@ class User {
 
     /**
      * Executes an operation on the user bank account.
-     * @param {Operation} operation - The operation to do on the user bank account.
+     * @param {Operation} operation - The {@link Operation} to do on the user {@link BankAccount}.
      */
     makeOperation(operation) {
         console.log("inside User.makeOperation()");
@@ -23,9 +53,25 @@ class User {
         console.log("operation " + operation.getType() + " has been added to the operations list");
     }
     
+    /**
+     * Returns the username of the {@link User}.
+     */
     get username() { return this.#username; }
+
+    /**
+     * Returns the password of the {@link User}.
+     */
     get password() { return this.#password; }
+
+    /**
+     * Returns the list of operations of the {@link User}.
+     * @see {@link Operation}
+     */
     get operations() { return this.#operations; }
+
+    /**
+     * Returns the {@link BankAccount} associated with the {@link User}
+     */
     get bankAccount() { return this.#bankAccount; }
     
 }
